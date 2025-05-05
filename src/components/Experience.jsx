@@ -13,7 +13,7 @@ export default function Experience({ isEditing }) {
   return (
     <>
       <h2 className="text-2xl font-semibold my-3 flex">Experience</h2>
-      <ul className="space-y-4">
+      <ul className="space-y-2">
         {experience.map((exp, index) => (
           <li key={index}>
             {isEditing ? (
@@ -86,7 +86,7 @@ export default function Experience({ isEditing }) {
                 placeholder="Write a brief description of your job..."
               />
             ) : (
-              <p className="flex text-left w-sm mt-2">{exp.description}</p>
+              <p className="flex text-justify w-md mt-1">{exp.description}</p>
             )}
             {isEditing && (
               <button

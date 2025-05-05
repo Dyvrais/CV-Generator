@@ -7,7 +7,7 @@ export default function SkillsList({ isEditing }) {
       <h2 className="text-2xl font-semibold my-3 flex">Skills</h2>
       <ul className="space-y-1">
         {skills.map((skill, index) => (
-          <li key={index} className="flex items-center">
+          <li key={index} className="">
             {isEditing ? (
               <input
                 type="text"
@@ -17,10 +17,10 @@ export default function SkillsList({ isEditing }) {
                   newSkills[index] = e.target.value;
                   setSkills(newSkills);
                 }}
-                className="block bg-transparent border-b border-gray-500"
+                className="flex bg-transparent border-b border-gray-500"
               />
             ) : (
-              <p className="block">{skill}</p>
+              <p className="flex">• {skill}</p>
             )}
             {isEditing && (
               <button

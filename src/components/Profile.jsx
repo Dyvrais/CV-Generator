@@ -15,7 +15,7 @@ export default function Profile({ isEditing }) {
           placeholder="Write a brief profile about yourself..."
         />
       ) : (
-        <p className="block w-sm h-fit flex text-justify">{profile}</p>
+        <p className="block w-md h-fit flex text-justify">{profile}</p>
       )}
     </>
   );

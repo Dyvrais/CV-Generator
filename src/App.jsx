@@ -29,7 +29,7 @@ function App() {
       scale: 2,
       useCORS: true,
     }).then((canvas) => {
-      const imgData = canvas.toDataURL("image/jpeg", 0.8);
+      const imgData = canvas.toDataURL("image/jpeg", 0.9);
       const pdf = new jsPDF("p", "mm", "letter");
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
@@ -63,7 +63,7 @@ function App() {
             <Education isEditing={isEditing} />
           </div>
           {/* Right Column */}
-          <div className="right-column flex-[2] px-4 py-1 rounded-lg">
+          <div className="right-column px-4 py-1 rounded-lg">
             <Profile isEditing={isEditing} />
             <hr className="border-t border-gray-500 my-3" />
             {/* Experience */}

@@ -10,7 +10,7 @@ export default function Contact({ isEditing }) {
   return (
     <>
       <h2 className="text-2xl font-semibold mb-4 flex">Contact</h2>
-      <ul className="space-y-4">
+      <ul className="space-y-4 max-w-[250px]">
         <li>
           {isEditing ? (
             <input
@@ -21,7 +21,7 @@ export default function Contact({ isEditing }) {
             />
           ) : (
             <p className="flex items-center ">
-              <MdOutlineMail />
+              <MdOutlineMail className="min-w-[16px]" />
               <span className="pl-2">{email}</span>
             </p>
           )}
@@ -35,10 +35,10 @@ export default function Contact({ isEditing }) {
               className="block bg-transparent border-b border-gray-500"
             />
           ) : (
-            <p className="flex items-center">
-              <MdPhone />
-              <span className="pl-1">{phone}</span>
-            </p>
+            <div className="flex items-center">
+              <MdPhone className="min-w-[16px]" />
+              <p className="pl-1">{phone}</p>
+            </div>
           )}
         </li>
         <li>
@@ -50,10 +50,12 @@ export default function Contact({ isEditing }) {
               className="block bg-transparent border-b border-gray-500"
             />
           ) : (
-            <p className="flex items-center">
-              <TbWorldWww />
-              <span className="pl-2">{website}</span>
-            </p>
+            <div className="flex items-center">
+              <TbWorldWww className="min-w-[16px]" />
+              <p className="text-left text-[#0000EE] max-w-[250px] pl-2 underline">
+                {website}
+              </p>
+            </div>
           )}
         </li>
       </ul>
