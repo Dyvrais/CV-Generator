@@ -89,7 +89,9 @@ function App() {
         <button
           id="download-pdf"
           onClick={generatePDF}
-          className="mt-2 m-auto px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+          className={`mt-2 m-auto px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 ${
+            isEditing ? "hidden" : ""
+          }`}
         >
           Download PDF
         </button>
