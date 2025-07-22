@@ -16,7 +16,7 @@ export default function TitleArea({ isEditing }) {
     }
   };
   return (
-    <div className="title-area text-center mb-4 flex items-center">
+    <div className="title-area text-center flex items-center">
       <div className="image-upload ml-6">
         {isEditing && (
           <div className="mb-2">
@@ -44,7 +44,13 @@ export default function TitleArea({ isEditing }) {
           />
         )}
       </div>
-      <div className="flex-1 relative right-15 align-center items-center">
+      <div
+        className={`${
+          image === null
+            ? "flex-1 text-center"
+            : "flex-1 relative right-15 text-center"
+        }`}
+      >
         {isEditing ? (
           <input
             type="text"
