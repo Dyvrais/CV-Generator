@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Experience({ isEditing }) {
+export default function Experience({ isEditing, newLanguage }) {
   const [experience, setExperience] = useState([
     {
       title: "Your Job Position Here",
@@ -12,7 +12,9 @@ export default function Experience({ isEditing }) {
   ]);
   return (
     <>
-      <h2 className="text-2xl font-semibold my-3 flex">Experience</h2>
+      <h2 className="text-2xl font-semibold my-3 flex">
+        {newLanguage === "en" ? "Experience" : "Experiencia"}
+      </h2>
       <ul className="space-y-2">
         {experience.map((exp, index) => (
           <li key={index}>

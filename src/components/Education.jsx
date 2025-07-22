@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Education({ isEditing }) {
+export default function Education({ isEditing, newLanguage }) {
   const [education, setEducation] = useState([
     {
       degree: "Your Degree Here",
@@ -11,7 +11,9 @@ export default function Education({ isEditing }) {
 
   return (
     <>
-      <h2 className="text-2xl font-semibold my-3 flex">Education</h2>
+      <h2 className="text-2xl font-semibold my-3 flex">
+        {newLanguage === "en" ? "Education" : "Educación"}
+      </h2>
       <ul className="space-y-4">
         {education.map((edu, index) => (
           <li key={index}>

@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 
-export default function SkillsList({ isEditing }) {
+export default function SkillsList({ isEditing, newLanguage }) {
   const [skills, setSkills] = useState(["React", "Tailwind CSS"]);
+
+  if (skills.length === 0) return null;
+
   return (
     <>
-      <h2 className="text-2xl font-semibold my-3 flex">Skills</h2>
+      <h2 className="text-2xl font-semibold my-3 flex">
+        {newLanguage === "en" ? "Skills" : "Habilidades"}
+      </h2>
       <ul className="space-y-1">
         {skills.map((skill, index) => (
           <li key={index} className="">
@@ -44,6 +49,7 @@ export default function SkillsList({ isEditing }) {
           Add Skill
         </button>
       )}
+      <hr className="border-t border-gray-500 my-3" />
     </>
   );
 }

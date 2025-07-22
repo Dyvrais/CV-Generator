@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 
-export default function Experience({ isEditing }) {
+export default function Experience({ isEditing, newLanguage }) {
   const [languages, setLanguages] = useState([
     "English - C2",
     "Spanish - Native",
   ]);
-
+  if (languages.length === 0) return null;
   return (
     <>
-      <h2 className="text-2xl font-semibold my-3 flex">Languages</h2>
+      <hr className="border-t border-gray-500 my-3" />
+      <h2 className="text-2xl font-semibold my-3 flex">
+        {newLanguage === "en" ? "Languages" : "Lenguajes"}
+      </h2>
       <ul className="space-y-2">
         {languages.map((language, index) => (
           <li key={index} className="flex items-center">

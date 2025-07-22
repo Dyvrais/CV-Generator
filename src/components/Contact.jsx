@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import { MdOutlineMail, MdPhone } from "react-icons/md";
 import { TbWorldWww } from "react-icons/tb";
 
-export default function Contact({ isEditing }) {
+export default function Contact({ isEditing, newLanguage }) {
   const [email, setEmail] = useState("johndoe@gmail.com");
   const [phone, setPhone] = useState("123-456-789");
   const [website, setWebsite] = useState("thejohndoepage.com");
 
   return (
     <>
-      <h2 className="text-2xl font-semibold mb-4 flex">Contact</h2>
+      <h2 className="text-2xl font-semibold mb-4 flex">
+        {newLanguage === "en" ? "Contact" : "Contacto"}
+      </h2>
       <ul className="space-y-4 max-w-[250px]">
         <li>
           {isEditing ? (
@@ -41,7 +43,8 @@ export default function Contact({ isEditing }) {
             </div>
           )}
         </li>
-        <li>
+        {/* MIGUEL MIGUEL MIGUEL >>> ARREGLAR */}
+        {/* <li>
           {isEditing ? (
             <input
               type="text"
@@ -50,15 +53,16 @@ export default function Contact({ isEditing }) {
               className="block bg-transparent border-b border-gray-500"
             />
           ) : (
-            <div className="flex items-center">
+            <div id="Www" className="flex items-center">
               <TbWorldWww className="min-w-[16px]" />
               <p className="text-left text-[#0000EE] max-w-[250px] pl-2 underline">
                 {website}
               </p>
             </div>
           )}
-        </li>
+        </li> */}
       </ul>
+      <hr className="border-t border-gray-500 my-3" />
     </>
   );
 }

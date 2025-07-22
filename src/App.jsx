@@ -12,6 +12,11 @@ import Languages from "./components/Languages";
 
 function App() {
   const [isEditing, setIsEditing] = useState(false);
+  const [newLanguage, setNewLanguage] = useState("en");
+
+  const toggleLanguage = () => {
+    setNewLanguage(newLanguage === "en" ? "es" : "en");
+  };
 
   const toggleEditMode = () => {
     setIsEditing(!isEditing);
@@ -29,7 +34,7 @@ function App() {
       scale: 2,
       useCORS: true,
     }).then((canvas) => {
-      const imgData = canvas.toDataURL("image/jpeg", 0.9);
+      const imgData = canvas.toDataURL("image/jpeg", 1);
       const pdf = new jsPDF("p", "mm", "letter");
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
@@ -54,23 +59,20 @@ function App() {
           {/* Left Column */}
           <div className="left-column flex-1 px-4 py-1 rounded-lg">
             {/* Contact Area */}
-            <Contact isEditing={isEditing} />
-            <hr className="border-t border-gray-500 my-3" />
+            <Contact isEditing={isEditing} newLanguage={newLanguage} />
             {/* Skills */}
-            <SkillsList isEditing={isEditing} />
-            <hr className="border-t border-gray-500 my-3" />
+            <SkillsList isEditing={isEditing} newLanguage={newLanguage} />
             {/* Education */}
-            <Education isEditing={isEditing} />
+            <Education isEditing={isEditing} newLanguage={newLanguage} />
           </div>
+
           {/* Right Column */}
           <div className="right-column px-4 py-1 rounded-lg">
-            <Profile isEditing={isEditing} />
-            <hr className="border-t border-gray-500 my-3" />
+            <Profile isEditing={isEditing} newLanguage={newLanguage} />
             {/* Experience */}
-            <Experience isEditing={isEditing} />
-            <hr className="border-t border-gray-500 my-3" />
+            <Experience isEditing={isEditing} newLanguage={newLanguage} />
             {/* Languages */}
-            <Languages isEditing={isEditing} />
+            <Languages isEditing={isEditing} newLanguage={newLanguage} />
           </div>
         </div>
 
@@ -92,6 +94,16 @@ function App() {
           Download PDF
         </button>
       </div>
+      <button
+        onClick={toggleLanguage}
+        className={`mt-2 m-auto px-2 py-2 text-white rounded ${
+          newLanguage === "en"
+            ? "bg-blue-500 hover:bg-blue-600"
+            : "bg-red-500 hover:bg-red-600"
+        }`}
+      >
+        {newLanguage === "en" ? "Switch to Spanish" : "Cambiar a Inglés"}
+      </button>
     </>
   );
 }

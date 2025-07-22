@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 
-export default function Profile({ isEditing }) {
+export default function Profile({ isEditing, newLanguage }) {
   const [profile, setProfile] = useState(
     "A passionate front-end developer with experience in building responsive and user-friendly web applications."
   );
   return (
     <>
-      <h2 className="text-2xl font-semibold mb-4 flex">Profile</h2>
+      <h2 className="text-2xl font-semibold mb-4 flex">
+        {newLanguage === "en" ? "Profile" : "Perfil"}
+      </h2>
       {isEditing ? (
         <textarea
           value={profile}
@@ -17,6 +19,7 @@ export default function Profile({ isEditing }) {
       ) : (
         <p className="block w-md h-fit flex text-justify">{profile}</p>
       )}
+      <hr className="border-t border-gray-500 my-3" />
     </>
   );
 }
